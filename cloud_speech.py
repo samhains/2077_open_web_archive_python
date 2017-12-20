@@ -212,22 +212,28 @@ def listen_print_loop(responses):
             response = response.strip().lower()
 
             if response in ["about", "more information", "information", "more"]:
+
+                time.sleep(1.0)
                 is_search = False
                 client.send_message("/scene", 3)
                 play_audio("about.wav")
 
             if response in ["history", "the history"]:
+
+                time.sleep(1.0)
                 is_search = False
                 play_audio("history.wav")
                 client.send_message("/scene", 3)
 
             elif response in ["search", "i want to search"]:
+                time.sleep(1.0)
                 client.send_message("/scene", 1)
                 is_search = True
 
                 play_audio("search.wav")
 
             elif is_search:
+                time.sleep(1.0)
                 with ThreadPoolExecutor(max_workers=1) as executor:
                     f = executor.submit(play_audio, "searching.wav")
 
