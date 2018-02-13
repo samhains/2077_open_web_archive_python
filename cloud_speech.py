@@ -283,7 +283,7 @@ def main():
     time.sleep(1.5)
 
     language_code = 'en-US'  # a BCP-47 language tag
-    play_audio("welcome.wav")
+    # play_audio("welcome.wav")
     # threading.Timer(1, turn_off_streaming).start()
     client = speech.SpeechClient()
     config = types.RecognitionConfig(
